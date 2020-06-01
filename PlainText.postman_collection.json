@@ -1,0 +1,143 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PlainText",
+		"_postman_id": "e334f65c-df5c-390f-3a1c-e12028e6de7a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SendText",
+			"request": {
+				"url": "http://Localhost:8080/text",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "PRIMARY_KEY,NAME,DESCRIPTION,UPDATED_TIMESTAMP\ntest,test,test,12932194\n2,test,test,12932194\n3,test,test,12932194\n4,test,test,12932194\n5,test,test,12932194\n6,test,test,12932194\n7,test,test,12932194\n8,test,test,12932194\n9,test,test,12932194\n10,test,test,12932194\n11,test,test,12932196\n "
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetText by id",
+			"request": {
+				"url": {
+					"raw": "http://Localhost:8080/text?id=1&timestamp-min=2",
+					"protocol": "http",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"text"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "timestamp-min",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "PRIMARY_KEY,NAME,DESCRIPTION,UPDATED_TIMESTAMP\n1,test,test,12932194\n2,test,test,12932194\n3,test,test,12932194\n4,test,test,12932194\n5,test,test,12932194\n6,test,test,12932194\n "
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetText by page",
+			"request": {
+				"url": {
+					"raw": "http://Localhost:8080/text?timestamp-min=12932195&page=1",
+					"protocol": "http",
+					"host": [
+						"Localhost"
+					],
+					"port": "8080",
+					"path": [
+						"text"
+					],
+					"query": [
+						{
+							"key": "timestamp-min",
+							"value": "12932195",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "PRIMARY_KEY,NAME,DESCRIPTION,UPDATED_TIMESTAMP\n1,test,test,12932194\n2,test,test,12932194\n3,test,test,12932194\n4,test,test,12932194\n5,test,test,12932194\n6,test,test,12932194\n "
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Element",
+			"request": {
+				"url": "http://Localhost:8080/text",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
